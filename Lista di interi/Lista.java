@@ -94,6 +94,38 @@ public class Lista implements ListaInteri{
         }
     }
 
+    public void ordinaCresente(){
+        Nodo nodoCorrente = head;
+        Nodo nodoDaScorrere = head.next;
+        while (nodoCorrente != null){
+            while (nodoDaScorrere != null){
+                if (nodoCorrente.value > nodoCorrente.next.value){
+                    int temp = nodoCorrente.value;
+                    nodoCorrente.value = nodoDaScorrere.value;
+                    nodoDaScorrere.value = temp;
+                }
+                nodoDaScorrere = nodoDaScorrere.next;
+            }
+            nodoCorrente = nodoCorrente.next;
+        }
+    }
+
+    public void ordinaDecresente(){
+        Nodo nodoCorrente = head;
+        Nodo nodoDaScorrere = head.next;
+        while (nodoCorrente != null){
+            while (nodoDaScorrere != null){
+                if (nodoCorrente.value < nodoCorrente.next.value){
+                    int temp = nodoCorrente.value;
+                    nodoCorrente.value = nodoDaScorrere.value;
+                    nodoDaScorrere.value = temp;
+                }
+                nodoDaScorrere = nodoDaScorrere.next;
+            }
+            nodoCorrente = nodoCorrente.next;
+        }
+    }
+
     public static void main(String[] args){
         Lista lista = new Lista();
         lista.addCoda(10);
@@ -109,5 +141,11 @@ public class Lista implements ListaInteri{
 
         System.out.println("Elementi della lista:");
         lista.stampa();
+
+        System.out.println("Elementi della lista in ordine crescente");
+        lista.ordinaCresente();
+
+        System.out.println("Elementi della lista in ordine decrescente");
+        lista.ordinaCresente();
     }
 }

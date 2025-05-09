@@ -10,4 +10,6 @@ interface ListaInteri {
     int size();
     boolean isEmpty();
     void stampa();
+    void ordinaCresente();
+    void ordinaDecresente();
 }
